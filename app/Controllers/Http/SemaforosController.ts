@@ -20,13 +20,13 @@ export default class SemaforosController {
     await Database.transaction(async (trx) => {
       try {
         const body = request.all();
-        let datos = JSON.parse(body.data);
+        let datos = body;
         let ImgDatos = {
           imagenes: JSON.stringify(datos.imagenes),
           obra: datos.obra,
           correo: datos.correo,
         };
-        let datosHueco = {
+        let datosSemaforo = {
           description: datos.description,
           latitude: datos.latitude,
           longitude: datos.longitude,
@@ -56,7 +56,7 @@ export default class SemaforosController {
         //@ts-ignore
         datosSemaforo.rutaImagen = rutaImagen;
         let semaforo = new Semaforo();
-        semaforo.fill(datosHueco);
+        semaforo.fill(datosSemaforo);
         semaforo.useTransaction(trx);
         await semaforo.save();
 
