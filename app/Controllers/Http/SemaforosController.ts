@@ -20,7 +20,7 @@ export default class SemaforosController {
     await Database.transaction(async (trx) => {
       try {
         const body = request.all();
-        let datos = body;
+        let datos = JSON.parse(body.data);
         let ImgDatos = {
           imagenes: JSON.stringify(datos.imagenes),
           obra: datos.obra,
