@@ -4,26 +4,32 @@ import { BaseModel, column } from '@ioc:Adonis/Lucid/Orm'
 export default class Semaforo extends BaseModel {
   public static table = 'reportes_semaforos.semaforos'
   @column({ isPrimary: true })
-  public id_reporte: number
+  public id_reporte: number;
 
   @column({columnName:'direccion'})
-  public location: string
+  public location: string;
 
   @column({columnName:'punto_referencia'})
-  public description: string
+  public description: string;
 
   @column({columnName:'x'})
-  public longitude: string
+  public longitude: string;
 
   @column({columnName:'y'})
-  public latitude: string
+  public latitude: string;
 
   @column({columnName:'correo_persona'})
-  public correo: string 
+  public correo: string ;
 
   @column({columnName:'ruta_imagen'})
-  public rutaImagen: String
+  public rutaImagen: String;
 
   @column.dateTime({ autoCreate: true, autoUpdate: true })
-  public fecha: DateTime
+  public fecha: DateTime;
+
+  @column({columnName:'tipo_dano'})
+  public tipo_dano: String;
+
+  @column({columnName:'observaciones'})
+  public observaciones: String;
 }

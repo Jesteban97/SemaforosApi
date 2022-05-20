@@ -32,6 +32,8 @@ export default class SemaforosController {
           longitude: datos.longitude,
           location: datos.location,
           correo: datos.correo,
+          tipo_dano:datos.tipo,
+          observaciones:datos.observacion
         };
 
         //http://10.2.0.111:3005
@@ -63,8 +65,11 @@ export default class SemaforosController {
         let id_reporte = semaforo.$getAttribute("id_reporte");
 
         await trx.commit();
+        let cod_reporte = await Database.query().from("reportes_semaforos.semaforos")
+        .select("codigo_reporte").where('id_reporte',id_reporte);
+        cod_reporte = cod_reporte[0].codigo_reporte;
         response.status(201);
-        response.send(id_reporte);
+        response.send(cod_reporte);
       } catch (error) {
         await trx.rollback();
         response.status(400);

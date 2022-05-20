@@ -12,10 +12,10 @@ RUN node ace generate:key
 
 #variables de entorno
 ENV NODE_ENV=production
-ENV WS_KEY=594hUWREQq2VD6F3uS5PtlFWNSK4UDk0
-ENV WS_UID=apisemaforosreportesmed
+ENV WS_KEY=D7qVyDA9xcAF6NkCb7M3N4cmAFooDig70ON9hRBO8DV4l
+ENV WS_UID=reportesmed
 ENV APP_TITLE="apisemaforosreportesmed"
 
 
-EXPOSE  3011
+EXPOSE  3029
 CMD ["node", "server.js"]
